@@ -4,6 +4,29 @@ A command-line task manager built in Java that implements a **Kanban-style workf
 This project demonstrates strong **object-oriented design**, **state management**, and **file-based persistence**.
 
 ---
+## 📖 Story Behind the Project
+
+This project started as a **learning challenge**.
+
+Coming from a C++ background, the goal was to **learn Java quickly through practice**, not just theory. Instead of following tutorials, the approach was to build a small but complete system that forces understanding of:
+
+* Java syntax and structure
+* Object-oriented design in a Java context
+* Differences in memory handling and collections
+
+At the same time, there was a personal motivation behind it.
+
+Being highly organized, there was a need for a **simple, distraction-free tool** to manage daily tasks directly from the terminal. Most existing tools felt too heavy or overcomplicated for quick usage.
+
+So this project became both:
+
+* 🧠 A **learning vehicle** to transition from C++ to Java
+* 🛠️ A **practical tool** used in day-to-day workflow
+
+The result is a lightweight Kanban-style task manager that reflects both **technical growth** and **real-world utility**.
+
+---
+
 
 ## 🚀 Features
 
@@ -120,28 +143,6 @@ Enter choice: 2
 
 ---
 
-## 📖 Story Behind the Project
-
-This project started as a **learning challenge**.
-
-Coming from a C++ background, the goal was to **learn Java quickly through practice**, not just theory. Instead of following tutorials, the approach was to build a small but complete system that forces understanding of:
-
-* Java syntax and structure
-* Object-oriented design in a Java context
-* Differences in memory handling and collections
-
-At the same time, there was a personal motivation behind it.
-
-Being highly organized, there was a need for a **simple, distraction-free tool** to manage daily tasks directly from the terminal. Most existing tools felt too heavy or overcomplicated for quick usage.
-
-So this project became both:
-
-* 🧠 A **learning vehicle** to transition from C++ to Java
-* 🛠️ A **practical tool** used in day-to-day workflow
-
-The result is a lightweight Kanban-style task manager that reflects both **technical growth** and **real-world utility**.
-
----
 
 ## 🚀 Future Improvements
 
