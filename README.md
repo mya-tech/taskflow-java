@@ -156,7 +156,7 @@ Enter choice: 2
 
 ## 👤 Author
 
-Mariam Touré
+Maryam-Ya Touré
 Computer Science Student
 
 ---
