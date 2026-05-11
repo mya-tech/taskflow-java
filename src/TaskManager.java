@@ -11,14 +11,14 @@ public class TaskManager {
     public TaskManager(){
         tasks = new ArrayList<>();
     }
-    public void addTask(String title){
-        Task newTask = new Task(title);
+    public void addTask(String title, Priority priority){
+        Task newTask = new Task(title, priority);
         tasks.add(newTask);
     }
     public void viewTasks(){
         for(int i = 0; i < tasks.size(); i++){
             Task t = tasks.get(i);
-            System.out.println(i + ": " + t.title + " [" + t.status + "]");
+            System.out.println(i + ": " + t.title + " [" + t.status + "]" + "->" + t.priority);
         }
     }
     public void moveTask(int index, Status newStatus){
@@ -32,7 +32,7 @@ public class TaskManager {
         try{
             FileWriter writer = new FileWriter("tasks.txt");
             for (Task t : tasks){
-                writer.write(t.title + "," + t.status + "\n");
+                writer.write(t.title + "," + t.status + "," + t.priority + "\n");
             }
             writer.close();
         }catch(IOException e){
@@ -49,8 +49,9 @@ public class TaskManager {
                 String parts[] = line.split(",");
                 String title = parts[0];
                 Status status = Status.valueOf(parts[1]);
+                Priority priority = Priority.valueOf(parts[2]);
 
-                Task t = new Task(title);
+                Task t = new Task(title, priority);
                 t.moveTo(status);
                 tasks.add(t);
             }

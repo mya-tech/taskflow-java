@@ -18,7 +18,13 @@ public class Main{
             if (choice == 1){
                 System.out.println("Enter task Title: ");
                 String title = input.nextLine();
-                manager.addTask(title);
+                System.out.println("Choose Priority Level: ");
+                System.out.println("0. LOW");
+                System.out.println("1. MEDIUM");
+                System.out.println("2. HIGH");
+                int priorityChoice = input.nextInt();
+                Priority priority = Priority.values()[priorityChoice];
+                manager.addTask(title,priority);
             }else if (choice == 2){
                 manager.viewTasks();
             }else if (choice == 3){
