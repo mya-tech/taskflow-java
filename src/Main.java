@@ -24,7 +24,14 @@ public class Main{
             }else if (choice == 3){
                 System.out.println("Enter task Index: ");
                 int id = input.nextInt();
-                manager.markTaskAsDone(id);
+                System.out.println("Select Status: ");
+                System.out.println("0. TO-DO");
+                System.out.println("1. DOING");
+                System.out.println("2. DONE");
+                int statusChoice = input.nextInt();
+
+                Status newStatus = Status.values()[statusChoice];
+                manager.moveTask(id,newStatus);
             }else if(choice == 4){
                 manager.saveToFile();
                 break;

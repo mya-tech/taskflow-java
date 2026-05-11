@@ -1,13 +1,15 @@
 public class Task {
     String title;
-    boolean isDone;
+    Status status;
 
     // Constructor
     public Task(String title){
         this.title = title;
-        this.isDone = false;
+        this.status = Status.TODO;
     }
-    public void markdown(){
-        this.isDone = true;
+    public void moveTo(Status newStatus){
+        this.status = newStatus;
+
     }
+
 }

@@ -18,21 +18,21 @@ public class TaskManager {
     public void viewTasks(){
         for(int i = 0; i < tasks.size(); i++){
             Task t = tasks.get(i);
-            System.out.println(i + ": " + t.title + " [" + (t.isDone ? "Done" : "Not Done") + "]");
+            System.out.println(i + ": " + t.title + " [" + t.status + "]");
         }
     }
-    public void markTaskAsDone(int index){
+    public void moveTask(int index, Status newStatus){
         if (index >= 0 && index < tasks.size()){
-            tasks.get(index).markdown();
-        }else{
-            System.out.println("Invalid Index");
+            tasks.get(index).moveTo(newStatus);
+        }else {
+            System.out.println("Invalid index");
         }
     }
     public void saveToFile(){
         try{
             FileWriter writer = new FileWriter("tasks.txt");
             for (Task t : tasks){
-                writer.write(t.title + "," + t.isDone + "\n");
+                writer.write(t.title + "," + t.status + "\n");
             }
             writer.close();
         }catch(IOException e){
@@ -48,12 +48,10 @@ public class TaskManager {
                 String line = reader.nextLine();
                 String parts[] = line.split(",");
                 String title = parts[0];
-                boolean isDone = Boolean.parseBoolean(parts[1]);
+                Status status = Status.valueOf(parts[1]);
 
                 Task t = new Task(title);
-                if(isDone){
-                    t.markdown();
-                }
+                t.moveTo(status);
                 tasks.add(t);
             }
             reader.close();
