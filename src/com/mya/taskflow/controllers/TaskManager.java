@@ -1,3 +1,10 @@
+package com.mya.taskflow.controllers;
+
+import com.mya.taskflow.model.Priority;
+import com.mya.taskflow.model.Status;
+import com.mya.taskflow.model.Task;
+
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -11,14 +18,14 @@ public class TaskManager {
     public TaskManager(){
         tasks = new ArrayList<>();
     }
-    public void addTask(String title, Priority priority){
-        Task newTask = new Task(title, priority);
+    public void addTask(String title, Priority priority, LocalDate dueDate){
+        Task newTask = new Task(title, priority, dueDate);
         tasks.add(newTask);
     }
     public void viewTasks(){
         for(int i = 0; i < tasks.size(); i++){
             Task t = tasks.get(i);
-            System.out.println(i + ": " + t.title + " [" + t.status + "]" + "->" + t.priority);
+            System.out.println(i + ": " + t.getTitle() + " [" + t.getStatus() + "]" + "->" + t.getPriority() + " [Due on the " + t.getDueDate() + "]");
         }
     }
     public void moveTask(int index, Status newStatus){
@@ -28,11 +35,25 @@ public class TaskManager {
             System.out.println("Invalid index");
         }
     }
+    public void movePriority(int index, Priority newPriority){
+        if (index >=0 && index < tasks.size()){
+            tasks.get(index).changePriority(newPriority);
+        }else {
+            System.out.println("Invalid index");
+        }
+    }
+    public void changeDueDate(int index, LocalDate dueDate){
+        if (index >=0 && index < tasks.size()){
+            tasks.get(index).setDueDate(dueDate);
+        }else {
+            System.out.println("Invalid index");
+        }
+    }
     public void saveToFile(){
         try{
             FileWriter writer = new FileWriter("tasks.txt");
             for (Task t : tasks){
-                writer.write(t.title + "," + t.status + "," + t.priority + "\n");
+                writer.write(t.getTitle() + "," + t.getStatus() + "," + t.getPriority() + "," + t.getDueDate() + "," + "\n");
             }
             writer.close();
         }catch(IOException e){
@@ -50,8 +71,9 @@ public class TaskManager {
                 String title = parts[0];
                 Status status = Status.valueOf(parts[1]);
                 Priority priority = Priority.valueOf(parts[2]);
+                LocalDate dueDate = LocalDate.parse(parts[3]);
 
-                Task t = new Task(title, priority);
+                Task t = new Task(title, priority, dueDate);
                 t.moveTo(status);
                 tasks.add(t);
             }

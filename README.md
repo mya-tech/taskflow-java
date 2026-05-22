@@ -1,4 +1,4 @@
-# 🧩 Kanban Task Manager (Java CLI)
+# 🧩 Kanban com.mya.taskflow.model.Task Manager (Java CLI)
 
 A command-line task manager built in Java that implements a **Kanban-style workflow** (TODO → DOING → DONE).
 This project demonstrates strong **object-oriented design**, **state management**, and **file-based persistence**.
@@ -43,9 +43,9 @@ The result is a lightweight Kanban-style task manager that reflects both **techn
 ```
 .
 ├── Main.java           # Entry point (user interaction & menu)
-├── Task.java           # Task model (data representation)
-├── TaskManager.java    # Core logic (task operations & persistence)
-├── Status.java         # Enum for task states (TODO, DOING, DONE)
+├── com.mya.taskflow.model.Task.java           # com.mya.taskflow.model.Task model (data representation)
+├── com.mya.taskflow.controllers.TaskManager.java    # Core logic (task operations & persistence)
+├── com.mya.taskflow.model.Status.java         # Enum for task states (TODO, DOING, DONE)
 ├── tasks_sample.txt    # Example data file
 ├── .gitignore
 └── README.md
@@ -57,9 +57,9 @@ The result is a lightweight Kanban-style task manager that reflects both **techn
 
 This project follows a clean separation of responsibilities:
 
-* **Task** → Represents a single task (data model)
-* **Status** → Enum defining task states (state management)
-* **TaskManager** → Handles all business logic (add, move, display, save/load)
+* **com.mya.taskflow.model.Task** → Represents a single task (data model)
+* **com.mya.taskflow.model.Status** → Enum defining task states (state management)
+* **com.mya.taskflow.controllers.TaskManager** → Handles all business logic (add, move, display, save/load)
 * **Main** → Handles user interaction and program flow
 
 This structure reflects real-world backend design principles.
@@ -68,7 +68,7 @@ This structure reflects real-world backend design principles.
 
 ## ⚙️ How It Works
 
-### 1. Task Creation
+### 1. com.mya.taskflow.model.Task Creation
 
 Users can add tasks via CLI input.
 
@@ -117,9 +117,9 @@ java Main
 ## 🧪 Example Usage
 
 ```
-1. Add Task
+1. Add com.mya.taskflow.model.Task
 2. View Tasks
-3. Move Task
+3. Move com.mya.taskflow.model.Task
 4. Exit
 
 Enter choice: 1
@@ -147,7 +147,7 @@ Enter choice: 2
 ## 🚀 Future Improvements
 
 * 🎨 GUI version (desktop or web-based)
-* 🗂️ Task categories or priorities
+* 🗂️ com.mya.taskflow.model.Task categories or priorities
 * 📅 Due dates and reminders
 * 🔍 Search and filtering
 * 🌐 Backend API version

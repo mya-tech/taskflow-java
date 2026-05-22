@@ -1,3 +1,0 @@
-Do Homework,TODO
-Do the dishes,DONE
-Finish Java Project,TODO
